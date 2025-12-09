@@ -2,7 +2,7 @@ package org.example;
 
 public class UserService {
     public boolean registerUser(String userNameControl, String passwordControl, int ageControl){
-        if (userNameControl == null || userNameControl.length()<3) {
+        if (userNameControl == null || userNameControl.trim().length()<3) {
             throw new IllegalArgumentException("Please enter a valid Username.(It should be at least 3 character long)");
         }
         if (passwordControl == null|| passwordControl.length()<6 || passwordControl.toLowerCase().contains("admin")){
@@ -12,7 +12,7 @@ public class UserService {
             throw new IllegalArgumentException("Unfortunately your age is not acceptable");
         }
         else{
-            return true;
+            return true; //If everything is okay returns true
         }
     }
  }
