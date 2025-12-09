@@ -11,4 +11,19 @@ public class UserServiceTest {
         });
     }
 
+    @Test
+    void testUnderageUser(){
+        assertThrows(IllegalArgumentException.class, () -> {
+           us.registerUser("Arda", "123456",15);
+        });
+    }
+
+    @Test
+    void testBlockedPasswords(){
+        assertThrows(IllegalArgumentException.class, () -> {
+           us.registerUser("Arda","12345admin6superPassword", 19);
+
+        });
+    }
+
 }
